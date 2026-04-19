@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SpareChange Pay</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 40px; }
+    input, button { padding: 10px; margin: 10px; }
+    .card { border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 300px; margin: auto; }
+  </style>
+</head>
+<body>
+
+<h2>Scan & Pay 💰</h2>
+
+<div class="card">
+  <input type="number" id="amount" placeholder="Enter amount"><br>
+  <button onclick="calculate()">Calculate</button>
+
+  <p id="pay"></p>
+  <p id="save"></p>
+
+  <button onclick="payNow()">Pay Now</button>
+</div>
+
+<script>
+let savings = 0;
+
+function calculate() {
+  let amount = document.getElementById("amount").value;
+  let rounded = Math.ceil(amount / 10) * 10;
+  savings = rounded - amount;
+
+  document.getElementById("pay").innerText = "Pay: ₹" + amount;
+  document.getElementById("save").innerText = "Save: ₹" + savings;
+}
+
+function payNow() {
+  alert("Payment Successful! Saved ₹" + savings);
+}
+</script>
+
+</body>
+</html>
